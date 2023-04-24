@@ -1,10 +1,17 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function errorPage() {
+
+	const router = useRouter()
+
+	const backToHomeHandler = () => {
+		router.push("/")
+	}
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
 			<div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -24,6 +31,8 @@ export default function errorPage() {
                 <Link href="/" className="pt-2">
                     <span>Back to Home</span>
                 </Link>
+
+				<a onClick={ backToHomeHandler}>Back to home</a>
 			</div>
 
 			<div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
