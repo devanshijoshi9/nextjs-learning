@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,6 +13,14 @@ export default function errorPage() {
 	const backToHomeHandler = () => {
 		router.push("/")
 	}
+
+	// use useEffect to redirect page to homepage in 3 sec. 
+	useEffect(()=> {
+		setTimeout(() => {
+			router.push("/")
+		}, 3000 )
+	}, [])
+
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
 			<div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
